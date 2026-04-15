@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数感启蒙小游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 首页 - 难度选择 -->
+    <div id="home-page" class="page hidden">
+        <div class="container">
+            <button id="back-from-home" class="back-btn">← 返回上一页</button>
+            <h1 class="game-title">数字探险</h1>
+            <div class="difficulty-selector">
+                <h2>选择难度</h2>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn" data-difficulty="easy">简单</button>
+                    <button class="difficulty-btn" data-difficulty="medium">中等</button>
+                    <button class="difficulty-btn" data-difficulty="hard">困难</button>
+                </div>
+            </div>
+            <button id="start-game" class="primary-btn">开始闯关</button>
+            <button id="view-medals" class="secondary-btn">我的勋章</button>
+        </div>
+    </div>
+
+    <!-- 模式选择页面 -->
+    <div id="mode-selection-page" class="page">
+        <div class="container">
+            <h1 class="game-title">选择游戏模式</h1>
+            <div class="mode-buttons">
+                <button id="number-recognition-mode" class="mode-btn">
+                    <div class="mode-icon">🔢</div>
+                    <div class="mode-name">认识数字</div>
+                    <div class="mode-desc">认识0-30内的数字</div>
+                </button>
+                <button id="addition-mode" class="mode-btn">
+                    <div class="mode-icon">➕</div>
+                    <div class="mode-name">加法运算</div>
+                    <div class="mode-desc">10以内的加法运算</div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 答题页 -->
+    <div id="game-page" class="page hidden">
+        <div class="container">
+            <div class="game-header">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="game-info">
+                    <span class="level">关卡: <span id="current-level">1</span></span>
+                    <span class="score">积分: <span id="current-score">0</span></span>
+                </div>
+            </div>
+            
+            <div class="question-area">
+                <h2 id="question-text">问题将显示在这里</h2>
+                <div id="animation-area" class="animation-area"></div>
+            </div>
+            
+            <div class="answer-area">
+                <div id="options-container" class="options-container">
+                    <!-- 选项将通过JS动态生成 -->
+                </div>
+                <button id="submit-answer" class="submit-btn" disabled>提交答案</button>
+            </div>
+            
+            <div class="button-container">
+                <button id="hint-btn" class="hint-btn">提示</button>
+                <button id="back-home" class="secondary-btn">返回上一页</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 勋章页面 -->
+    <div id="medals-page" class="page hidden">
+        <div class="container">
+            <h1 class="page-title">我的勋章</h1>
+            <div class="medals-grid">
+                <!-- 勋章将通过JS动态生成 -->
+            </div>
+            <button id="back-from-medals" class="secondary-btn">返回上一页</button>
+        </div>
+    </div>
+
+    <!-- 激励弹窗 -->
+    <div id="reward-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="star-animation">⭐</div>
+            <p id="reward-message"></p>
+            <button id="close-reward" class="primary-btn">继续</button>
+        </div>
+    </div>
+
+    <!-- 通关弹窗 -->
+    <div id="level-up-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>恭喜通关！</h2>
+            <div class="medal-animation">🏆</div>
+            <p id="level-up-message"></p>
+            <button id="next-level" class="primary-btn">下一关</button>
+        </div>
+    </div>
+
+    <!-- 投屏按钮 -->
+    <div class="cast-button-container">
+        <button id="cast-btn" class="cast-btn">
+            📱 投屏
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
